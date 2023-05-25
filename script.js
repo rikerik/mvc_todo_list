@@ -25,7 +25,15 @@ class Model {
         //here we add the const todo to the array
         this.todos.push(todo);
     }
-
+    //Map through all todos, and replace the text of the todo with specified id
+    editTodo(id, updatedText) {
+        this.todos = this.todos.map((todo) =>
+            // Check if the current todo's id matches the parameter id
+            // If the ids match, update the todo's text with the updatedText parameter
+            // Otherwise, the todo wont change and the array will stay the same
+            todo.id === id ? { id: todo.id, text: updatedText, complete: todo.complete } : todo,
+        )
+    }
 }
 
 class View {
