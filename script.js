@@ -34,6 +34,22 @@ class Model {
             todo.id === id ? { id: todo.id, text: updatedText, complete: todo.complete } : todo,
         )
     }
+
+    //Delete a todo from the array by id
+    deleteTodo(id) {
+        //The filter function iterates over each todo element in the array
+        //and only keep the elements that have a different id
+        this.todos = this.todos.filter((todo) => todo.id !== id)
+    }
+
+    //Flip the complete boolean on the specified todo
+    //we iterate through the elements and if we find the matching id,
+    //the complete property will be changed
+    toggleTodo(id) {
+        this.todos = this.todos.map((todo) =>
+            todo.id === id ? { id: todo.id, text: todo.text, complete: !todo.complete } : todo,
+        )
+    }
 }
 
 class View {
