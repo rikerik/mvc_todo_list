@@ -54,7 +54,29 @@ class Model {
 
 class View {
     //A visual representation of the model
-    constructor() {
+    constructor() { }
+
+    //Create an element with an optional css class
+
+    //This function creates an HTML element with the specified
+    //tag and adds an optional class name to it.
+    //It starts by using the document.createElement(tag) method to create a
+    //new element of the specified tag type (e.g., 'div', 'span', 'p', etc.).
+    createElement(tag, className) {
+        const element = document.createElement(tag)
+        if (className) element.classList.add(className)
+        //If a class name is provided as the second argument, the function adds that
+        //class to the element using the classList.add(className) method.
+        //This allows to easily apply CSS styles or select the element later using the class name.
+
+        return element
+    }
+
+    //Retrive an element from the DOM
+    getElement(selector){
+        const element = document.querySelector(selector)
+
+        return element
     }
 }
 
